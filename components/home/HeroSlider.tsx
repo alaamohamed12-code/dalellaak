@@ -6,7 +6,7 @@ import { useLang } from '../../components/layout/Providers'
 import { motion } from 'framer-motion'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import 'swiper/css/navigation'
+import 'swiper/css/navigation' 
 import 'swiper/css/effect-fade'
 
 const slides = [
