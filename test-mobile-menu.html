@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار القائمة الجانبية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="p-4">
+        <button id="openMenu" class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition">
+            افتح القائمة الجانبية
+        </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="fixed inset-0 z-[9999] hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="closeMenu()"></div>
+        <div class="fixed top-0 right-0 h-full w-full max-w-xs sm:max-w-sm bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30 backdrop-blur-xl shadow-2xl overflow-y-auto z-[10000]">
+            
+            <!-- Header -->
+            <div class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-200 p-4 flex items-center justify-between z-10">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                        د
+                    </div>
+                    <div class="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">دليل البناء</div>
+                </div>
+                <button onclick="closeMenu()" class="p-2 rounded-xl hover:bg-red-50 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-700" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <div class="p-4">
+                <nav class="flex flex-col gap-2">
+                    <button class="flex items-center gap-3 text-base text-gray-700 py-4 px-4 w-full rounded-xl bg-white/50 hover:bg-white shadow-sm hover:shadow-md transition-all font-bold">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white text-xl">
+                            🏠
+                        </div>
+                        <span>الرئيسية</span>
+                    </button>
+                    
+                    <button class="flex items-center gap-3 text-base text-gray-700 py-4 px-4 w-full rounded-xl bg-white/50 hover:bg-white shadow-sm hover:shadow-md transition-all font-bold">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center text-white text-xl">
+                            🛠️
+                        </div>
+                        <span>الخدمات</span>
+                    </button>
+                    
+                    <button class="flex items-center gap-3 text-base text-gray-700 py-4 px-4 w-full rounded-xl bg-white/50 hover:bg-white shadow-sm hover:shadow-md transition-all font-bold">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 flex items-center justify-center text-white text-xl">
+                            ❓
+                        </div>
+                        <span>الأسئلة الشائعة</span>
+                    </button>
+                    
+                    <button class="flex items-center gap-3 text-base text-gray-700 py-4 px-4 w-full rounded-xl bg-white/50 hover:bg-white shadow-sm hover:shadow-md transition-all font-bold">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-pink-500 to-red-500 flex items-center justify-center text-white text-xl">
+                            📞
+                        </div>
+                        <span>تواصل معنا</span>
+                    </button>
+                </nav>
+
+                <!-- User Section -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="flex flex-col gap-2">
+                        <button class="flex items-center gap-3 text-base text-blue-600 py-3 px-4 w-full rounded-xl bg-blue-50 hover:bg-blue-100 transition-all font-bold">
+                            <span>تسجيل الدخول</span>
+                        </button>
+                        <button class="flex items-center gap-3 text-base text-white py-3 px-4 w-full rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all font-bold shadow-lg">
+                            <span>إنشاء حساب</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const drawer = document.getElementById('mobileDrawer');
+        const openBtn = document.getElementById('openMenu');
+
+        function openMenu() {
+            drawer.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            drawer.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        openBtn.addEventListener('click', openMenu);
+    </script>
+</body>
+</html>
